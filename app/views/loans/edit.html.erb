@@ -1,0 +1,10 @@
+<%= form_for @loans do |f| %>
+  <% @loans.each do |loan| %>
+    <%= f.fields_for :transactions, loan.transactions do |tf| %>
+      <%= tf.label :amount %>
+      <%= tf.text_field :amount %>
+    <% end %>
+  <% end %>
+
+  <%= f.submit "Update Transactions" %>
+<% end %>
